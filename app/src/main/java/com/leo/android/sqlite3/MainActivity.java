@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int[] mPositionId = {1, 2, 3, 4};
     private String[] mPositionName = {"Директор", "Программист", "Бухгалтер", "Охранник"};
-    private int[] mPositionSalary = {300000, 200000, 60000, 30000};
+    private int[] mPositionSalary = {800000, 60000, 40000, 20000};
 
     private String[] mPeopleName = {"Максим", "Руслан", "Сергей", "Наталья", "Иван", "Мария", "Светлана", "Денис", };
     private int[] mPeoplePositionId = {2, 3, 2, 2, 3, 1, 2, 4};
@@ -45,10 +45,10 @@ public class MainActivity extends AppCompatActivity {
         Log.d(LOG_TAG, "--- ---");
 
         Log.d(LOG_TAG, "---INNER JOIN with rawQuery---");
-        String sqlQuery = "select PL.name as Name, PS.name as position, salary as Salary "
+        String sqlQuery = "select PL.name as Name, PS.name as Position, salary as Salary "
                 + "from people as PL "
                 +"inner join position as PS "
-                +"on PL.posid "
+                +"on PL.posid = PS.id "
                 +"where salary > ?";
         mCursor = mDatabase.rawQuery(sqlQuery, new String[] {"40000"});
         logcursor(mCursor);
