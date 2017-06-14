@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         String sqlQuery = "select PL.name as Name, PS.name as Position, salary as Salary "
                 + "from people as PL "
                 +"inner join position as PS "
-                +"on PL.posid = PS.id "
+                +"on PL.posid = PS.id  "
                 +"where salary > ?";
         mCursor = mDatabase.rawQuery(sqlQuery, new String[] {"40000"});
         logcursor(mCursor);
